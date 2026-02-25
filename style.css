@@ -1,0 +1,542 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #000;
+  --muted: #9a9a9a;
+  --accent: #6e3ac8;
+  --accent-2: #00ffff;
+  --btn-1: blueviolet;
+  --text: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  animation: fadeIn 1s ease-in-out;
+  font-family: "Lexend", sans-serif;
+}
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+header.container {
+  padding-top: 1.5rem !important;
+}
+
+#logo_div {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  animation: slideDown 1s ease-in-out;
+}
+
+#nav_box .nav-link {
+  color: #c9c0c0;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  transition: color 0.3s ease;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+#nav_box .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #00ffff;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px #00ffff;
+}
+
+#nav_box .nav-link:hover {
+  color: #e0f0f0;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+#nav_box .nav-link:hover::after {
+  width: 100%;
+}
+
+.members-col {
+  margin-left: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.members-btn {
+  background: #fff;
+  color: #1a1a1a;
+  border: none;
+  padding: 8px 18px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.members-btn:hover {
+  background-color: var(--btn-1);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(106, 58, 175, 0.4);
+}
+
+/* --- Mobile Nav Toggle (Appears below 992px) --- */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* Style for offcanvas menu on mobile */
+.offcanvas {
+  background-color: var(--bg);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.offcanvas-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.offcanvas-body .nav-link {
+  font-size: 1.25rem;
+  padding: 0.75rem 0;
+  color: #c9c0c0;
+}
+.offcanvas-body .nav-link:hover {
+  color: var(--accent-2);
+}
+
+
+/* ---------- Hero ---------- */
+.hero-row {
+  padding-top: 2rem !important; 
+}
+
+.sec1-text {
+  /* Using clamp for responsive font size: min 30px, ideal 7vw, max 55px */
+  font-size: clamp(30px, 7vw, 55px);
+  font-family: "Titan One", sans-serif;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  /* Adjusting align on small screens */
+  text-align: center;
+}
+/* Override alignment for larger screens */
+@media (min-width: 992px) {
+  .sec1-text {
+    text-align: left;
+  }
+}
+
+.para1 {
+  color: rgb(233, 230, 230);
+  /* Using clamp for responsive font size: min 18px, ideal 2vw, max 24px */
+  font-size: clamp(18px, 2vw, 24px);
+  animation: fadeInUp 1.4s ease-in-out;
+  max-width: 700px;
+  /* Adjusting align on small screens */
+  text-align: center;
+  margin: 0.5rem auto 1rem auto; /* Center on mobile */
+}
+/* Override alignment for larger screens */
+@media (min-width: 992px) {
+  .para1 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Center buttons on small screens */
+.hero-row .d-flex.gap-3 {
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  .hero-row .d-flex.gap-3 {
+    justify-content: flex-start;
+  }
+}
+
+
+#btn_1,
+.btn-signup {
+  background-color: var(--btn-1);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(106, 58, 175, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  font-size: clamp(16px, 4vw, 20px); /* Responsive button text */
+}
+
+#btn_1:hover,
+.btn-signup:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(106, 58, 175, 0.28);
+}
+
+/* ---------- Screenshot Image ---------- */
+.screenshot {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  animation: floatImg 5s ease-in-out infinite;
+  margin-top: 2rem; /* Add space between text and image on mobile */
+}
+@media (min-width: 992px) {
+    .screenshot {
+        margin-top: 0;
+    }
+}
+
+/* floating animation */
+@keyframes floatImg {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ---------- Headings ---------- */
+h4 {
+  background: linear-gradient(to right, #6d38c4, #8416b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Titan One", sans-serif;
+  /* Responsive h4 */
+  font-size: clamp(20px, 4vw, 27px);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+h1 {
+  /* Responsive h1 */
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 800;
+  font-family: "Oswald", sans-serif;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.para2 {
+  /* Responsive para2 */
+  font-size: clamp(18px, 2.5vw, 24px) !important;
+}
+
+/* ---------- Video ---------- */
+.promo-video {
+  width: 90%; /* Increased size on small screens */
+  max-width: 900px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  animation: fadeInUp 1.2s ease-in-out;
+}
+@media (min-width: 992px) {
+    .promo-video {
+        width: 70%; /* Back to 70% on larger screens */
+    }
+}
+
+
+/* ---------- Glow Boxes (Stats) ---------- */
+.stats-row {
+  --bs-gutter-x: 1.5rem; /* Reduce gutter for small devices */
+  --bs-gutter-y: 2rem;
+}
+@media (min-width: 768px) {
+    .stats-row {
+        --bs-gutter-x: 3rem; /* Increase gutter for medium devices */
+        --bs-gutter-y: 3rem;
+    }
+}
+@media (min-width: 992px) {
+    .stats-row {
+        --bs-gutter-x: 3rem; /* Maintain large gutter */
+        --bs-gutter-y: 3rem;
+    }
+}
+
+
+.glow-box {
+  width: 100%; /* Full width in its column on mobile */
+  height: 130px;
+  border-radius: 18px;
+  border: 4px solid rgba(33, 162, 89, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 38, 0.06), 0 6px 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 1.5rem; /* Reduced padding for smaller boxes */
+  transition: all 0.4s ease;
+}
+/* Revert to desktop size/style on larger screens */
+@media (min-width: 768px) {
+    .glow-box {
+        width: 219px;
+        height: 140px;
+        border-radius: 22px;
+        border: 7px solid rgba(33, 49, 196, 0.2);
+        padding-left: 0.6rem;
+    }
+}
+
+
+.glow-box h2 {
+    font-size: clamp(24px, 4vw, 32px) !important;
+    margin-top: 0.5rem !important;
+}
+
+.glow-box p {
+    font-size: clamp(14px, 2.5vw, 20px) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.glow-box:hover {
+  animation: glowPulse 0.8s ease-in-out forwards;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.08), 0 6px 18px rgba(0, 0, 0, 0.5);
+    transform: translateY(0);
+  }
+  100% {
+    box-shadow: 0 0 28px rgba(0, 255, 255, 0.22), 0 12px 40px rgba(0, 0, 0, 0.55);
+    transform: translateY(-6px);
+  }
+}
+
+/* ---------- Buttons CTA ---------- */
+.btn_2, .btn_3 {
+  /* Responsive button font size */
+  font-size: clamp(16px, 3.5vw, 19px);
+  width: clamp(140px, 40%, 190px); /* Responsive width: min 140px, max 180px */
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.btn_2 {
+  background-color: rgb(83, 31, 180);
+}
+.btn_3 {
+  background-color: rgb(165, 34, 146);
+}
+
+.btn_2:hover {
+  transform: translateY(-3px);
+  background-color: #6d38c4;
+  box-shadow: 0 6px 18px rgba(106, 58, 175, 0.4);
+}
+.btn_3:hover {
+  transform: translateY(-3px);
+  background-color: rgb(197, 34, 172);
+  box-shadow: 0 6px 18px rgba(197, 34, 172, 0.4);
+}
+/* Adjust margin for mobile button stacking */
+@media (max-width: 576px) {
+    .btn_2, .btn_3 {
+        width: 100%;
+    }
+    .btn_3 {
+        margin-left: 0 !important;
+        margin-top: 10px; /* Space between stacked buttons */
+    }
+    .my-5 .col .mt-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* ---------- Content / Features ---------- */
+.content {
+    /* Use gap for spacing between rows/cols on small screens */
+    row-gap: 5rem;
+}
+
+.ps-5 {
+    padding-left: 1rem !important; /* Reduce excessive left padding */
+}
+@media (min-width: 768px) {
+    .ps-5 {
+        padding-left: 3rem !important;
+    }
+}
+
+.para-card {
+  color: rgb(92, 29, 150);
+  animation: fadeInUp 1.4s ease-in-out;
+  font-weight: 700;
+  /* Responsive font size */
+  font-size: clamp(16px, 2vw, 20px) !important;
+}
+
+h2 {
+  font-family: "Lexend", sans-serif;
+  font-weight: 900;
+}
+h5 {
+  font-family: "Poller One", sans-serif;
+  /* Responsive h5 */
+  font-size: clamp(28px, 4vw, 40px) !important;
+}
+.prof_text {
+  background: linear-gradient(to right, #6d38c4, #440360);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+h3 {
+  font-weight: 400;
+  font-family: "Titan One", sans-serif;
+  /* Responsive h3 */
+  font-size: clamp(24px, 4vw, 32px);
+}
+/* Responsive feature text */
+.row .col-md-6 p.fs-4 {
+    font-size: clamp(16px, 2.5vw, 22px) !important;
+}
+
+.feature-img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  animation: floatImg 6s ease-in-out infinite;
+  margin-top: 2rem; /* Add margin on mobile when image is on top */
+}
+
+/* Reverse order for even rows on smaller screens for better flow */
+@media (max-width: 767.98px) {
+    /* Feature 2, 4, 6 - the rows where the image is first on desktop */
+    .content > .row:nth-child(even) .col-md-6:first-child {
+        order: 2;
+    }
+    .content > .row:nth-child(even) .col-md-6:last-child {
+        order: 1;
+    }
+    .feature-img {
+        margin-top: 0; /* Remove margin when image is on the bottom */
+        margin-bottom: 2rem;
+    }
+}
+@media (min-width: 768px) {
+    .feature-img {
+        margin-top: 0;
+    }
+}
+
+/* icons */
+.icon-lg {
+  color: rgb(110, 58, 200);
+  width: clamp(40px, 8vw, 60px); /* Responsive icon size */
+  height: clamp(40px, 8vw, 60px);
+  transition: transform 0.5s ease, filter 0.5s ease;
+  animation: fadeIn 1.4s ease-in-out;
+}
+
+.icon-lg:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: drop-shadow(0 0 10px rgba(110, 58, 200, 0.7));
+}
+
+/* hr */
+hr {
+  opacity: 0.5;
+  color: darkgray;
+  width: 100%;
+  margin-top: 40px;
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+}
+
+/* footer */
+.footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem !important;
+}
+@media (min-width: 768px) {
+    .footer-links {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem !important;
+    }
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* ---------- Animations (Unchanged) ---------- */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  0% { transform: translateY(-30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------- Media Queries (Cleaned up) ---------- */
+
+/* Tablets / Medium Devices (Bootstrap md breakpoint) */
+@media (max-width: 991.98px) {
+    /* Main Nav is hidden, replaced by button */
+    #nav_box {
+        display: none !important;
+    }
+    /* Logo and Button for Header */
+    header .d-flex {
+        justify-content: space-between;
+    }
+    .members-col {
+        margin-left: 0;
+        /* Hiding member button on small screens to reduce clutter, relying on offcanvas */
+        display: none !important; 
+    }
+}
+
+/* Small Devices (Bootstrap sm breakpoint) */
+@media (max-width: 575.98px) {
+    /* Footer stacking */
+    .footer-links {
+        justify-content: center !important;
+    }
+    /* Logo position */
+    #logo_div {
+        justify-content: center;
+    }
+    .hero-row .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+}
