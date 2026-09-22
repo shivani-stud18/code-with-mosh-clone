@@ -45,6 +45,10 @@ header.container {
   color: #c9c0c0;
   text-decoration: none;
   font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  padding-left: 0;
+  padding-right: 0;
   position: relative;
   transition: color 0.3s ease;
   animation: fadeIn 1.2s ease-in-out;
@@ -72,10 +76,17 @@ header.container {
 }
 
 .members-col {
-  margin-left: 80px;
+  margin-left: 20px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  flex-shrink: 0;
+}
+#nav_box .nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 18px;
 }
 
 .members-btn {
@@ -217,6 +228,10 @@ h1 {
 
 .para2 {
   font-size: clamp(18px, 2.5vw, 24px) !important;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .promo-video {
@@ -452,6 +467,12 @@ hr {
     }
 }
 
+.company-para {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 footer a {
   color: var(--muted);
   text-decoration: none;
@@ -500,4 +521,31 @@ footer a:hover {
         flex-direction: column;
         gap: 10px !important;
     }
+}
+
+@media (min-width: 992px) {
+
+  header > .d-flex {
+    position: relative;
+    justify-content: center !important;
+  }
+
+  #logo_div {
+    position: absolute;
+    left: 0;
+  }
+
+  header .d-none.d-lg-flex {
+    margin-left: 0 !important;
+  }
+
+  #nav_box .nav {
+    justify-content: center;
+  }
+
+  .members-col {
+    position: absolute;
+    right: 0;
+  }
+
 }
