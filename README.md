@@ -1,4 +1,4 @@
-# Code with Mosh Clone
+#Code with Mosh Clone
 
 A modern, responsive educational website clone built with HTML, CSS, and Bootstrap, focused on clean layouts, responsive design, interactive navigation, animations, and an engaging learning-platform interface.
 
