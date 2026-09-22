@@ -254,6 +254,7 @@ h1 {
 
 .glow-box {
   width: 100%; 
+  max-width: 240px;
   height: 130px;
   border-radius: 18px;
   border: 4px solid rgba(33, 162, 89, 0.2);
@@ -261,17 +262,19 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding-left: 1.5rem; 
+  align-items: center;
+  text-align: center;
+  padding-left: 1rem; 
   transition: all 0.4s ease;
 }
 @media (min-width: 768px) {
     .glow-box {
-        width: 219px;
-        height: 140px;
-        border-radius: 22px;
-        border: 7px solid rgba(33, 49, 196, 0.2);
-        padding-left: 0.6rem;
+        width: 100%;
+        max-width: 220px;
+        min-height: 140px;
+        border-radius: 20px;
+        border-width: 5px;
+        padding: 1rem 0.75rem;
     }
 }
 
